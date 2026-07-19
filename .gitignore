@@ -1,0 +1,48 @@
+# Secrets
+.env
+auth.json
+auth.lock
+
+# Runtime state
+state.db
+state.db-shm
+state.db-wal
+verification_evidence.db
+memories/
+
+# Caches
+cache/
+image_cache/
+audio_cache/
+models_dev_cache.json
+ollama_cloud_models_cache.json
+provider_models_cache.json
+
+# Logs and sessions
+logs/
+sessions/
+.hermes_history
+
+# Backups
+*.bak.*
+
+# Generated
+.skills_prompt_snapshot.json
+.update_check
+
+# Sandboxed home
+home/
+
+# LSP
+lsp/
+
+# User workspace
+workspace/
+plans/
+sandboxes/
+skins/
+hooks/
+pairing/
+
+# Cron output
+cron/output/
