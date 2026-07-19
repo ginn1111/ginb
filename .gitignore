@@ -46,3 +46,4 @@ pairing/
 
 # Cron output
 cron/output/
+.no-bundled-skills
