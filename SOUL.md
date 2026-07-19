@@ -1,0 +1,1 @@
+/home/aioz/personal/agents-hype/profiles/ginb.SOUL.md

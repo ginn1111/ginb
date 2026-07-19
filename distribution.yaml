@@ -1,0 +1,22 @@
+name: ginb
+version: 1.0.0
+description: "Solo builder: implements, self-reviews, verifies, and ships deliveries"
+hermes_requires: '>=0.18.0'
+author: Gin
+license: MIT
+env_requires:
+- name: GIN_API_KEY
+  description: API key for gin model access
+- name: GIN_BASE_URL
+  description: Base URL for gin model provider
+source: https://github.com/ginn1111/gin-harness
+installed_at: '2026-07-19T08:00:00+00:00'
+updated_at: '2026-07-19T08:00:00+00:00'
+skills_count: 38
+skills_shared:
+- ginflow (workflow, via repo symlink)
+- ginb.SOUL.md (behavior, via repo symlink)
+- mattpocock-skills (community, via external_dirs)
+- custom repo skills (via external_dirs)
+cron_jobs: 0
+cron_active: 0

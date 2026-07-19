@@ -1,0 +1,67 @@
+# Deployment config for ginb (gin delivery pipeline)
+# Template — machine-specific values replaced by setup.sh
+# .env must export: GIN_API_KEY, GIN_BASE_URL
+
+model:
+  default: coder
+  provider: custom
+  base_url: https://agents.gin1111.dev/v1
+  api_key: ${GIN_API_KEY}
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  provider: byterover
+  byterover:
+    auto_extract: false
+
+skills:
+  external_dirs:
+    - /home/aioz/personal/agents-hype/community/mattpocock-skills/skills
+    - /home/aioz/personal/agents-hype/skills
+
+_config_version: 33
+
+custom_providers:
+  - api_key: ${GIN_API_KEY}
+    base_url: ${GIN_BASE_URL}
+    default: coder
+    name: agents.gin1111.dev
+
+platform_toolsets:
+  cli:
+    - code_execution
+    - delegation
+    - file
+    - kanban
+    - memory
+    - session_search
+    - skills
+    - terminal
+    - todo
+    - vision
+    - web
+    - mcp-codegraph
+
+mcp_servers:
+  codegraph:
+    command: codegraph
+    args:
+      - serve
+      - --mcp
+    timeout: 120
+    connect_timeout: 60
+    enabled: true
+
+known_plugin_toolsets:
+  cli:
+    - spotify
+
+plugins:
+  enabled:
+    - herdr-agent-state
+
+display:
+  skin: daylight
