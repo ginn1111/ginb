@@ -1,13 +1,37 @@
-# Deployment config for ginb (gin delivery pipeline)
-# Template — machine-specific values replaced by setup.sh
-# .env must export: GIN_API_KEY, GIN_BASE_URL
-
 model:
   default: coder
   provider: custom
   base_url: https://agents.gin1111.dev/v1
   api_key: ${GIN_API_KEY}
-
+display:
+  skin: mono
+moa:
+  presets:
+    default:
+      reference_models:
+        - provider: custom:agents.gin1111.dev
+          model: kr/claude-opus-4.8-thinking
+        - provider: custom:agents.gin1111.dev
+          model: kr/gpt-5.6-terra
+        - provider: custom:agents.gin1111.dev
+          model: nvidia/deepseek-ai/deepseek-v4-pro
+      aggregator:
+        provider: custom:agents.gin1111.dev
+        model: cx/gpt-5.6-sol
+      fanout: per_iteration
+  reference_models:
+    - provider: custom:agents.gin1111.dev
+      model: kr/claude-opus-4.8-thinking
+    - provider: custom:agents.gin1111.dev
+      model: kr/gpt-5.6-terra
+    - provider: custom:agents.gin1111.dev
+      model: nvidia/deepseek-ai/deepseek-v4-pro
+  aggregator:
+    provider: custom:agents.gin1111.dev
+    model: cx/gpt-5.6-sol
+  max_tokens: 4096
+  fanout: per_iteration
+  enabled: true
 memory:
   memory_enabled: true
   user_profile_enabled: true
@@ -16,26 +40,24 @@ memory:
   provider: byterover
   byterover:
     auto_extract: false
-
 skills:
   external_dirs:
-    - /home/aioz/personal/agents-hype/community/mattpocock-skills/skills
-    - /home/aioz/personal/agents-hype/skills
-
+    - ${HOME}/.agents/skills
+    - /home/aioz/personal/gin-harness/skills
+  write_approval: true
 _config_version: 33
-
 custom_providers:
   - api_key: ${GIN_API_KEY}
     base_url: ${GIN_BASE_URL}
     default: coder
     name: agents.gin1111.dev
-
 platform_toolsets:
   cli:
     - code_execution
     - delegation
     - file
     - kanban
+    - mcp-codegraph
     - memory
     - session_search
     - skills
@@ -43,8 +65,6 @@ platform_toolsets:
     - todo
     - vision
     - web
-    - mcp-codegraph
-
 mcp_servers:
   codegraph:
     command: codegraph
@@ -54,14 +74,9 @@ mcp_servers:
     timeout: 120
     connect_timeout: 60
     enabled: true
-
 known_plugin_toolsets:
   cli:
     - spotify
-
 plugins:
   enabled:
-    - herdr-agent-state
-
-display:
-  skin: daylight
+    - ginflow-gate

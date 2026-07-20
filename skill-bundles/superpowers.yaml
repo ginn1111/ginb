@@ -1,0 +1,15 @@
+name: superpowers
+skills:
+- brainstorming
+- dispatching-parallel-agents
+- executing-plans
+- finishing-a-development-branch
+- receiving-code-review
+- using-git-worktrees
+- using-superpowers
+- verification-before-completion
+- writing-skills
+description: superpowers workflow.
+instruction: Use relevant superpowers skill before work. Start creative or behavior-changing
+  work with brainstorming. Use worktrees for isolated feature work. Verify real test
+  output before claiming completion.

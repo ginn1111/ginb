@@ -47,3 +47,6 @@ pairing/
 # Cron output
 cron/output/
 .no-bundled-skills
+
+# Machine-local curator metadata
+skills/.curator_state
