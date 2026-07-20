@@ -5,6 +5,11 @@ model:
   api_key: ${GIN_API_KEY}
 display:
   skin: mono
+hooks:
+  shell_hooks:
+    pre_llm_call:
+      - command: python3 /Users/gin/.hermes/profiles/ginb/english-tutor/scripts/capture_prompt.py
+        description: "Capture user prompt for daily English tutor review"
 moa:
   presets:
     default:
