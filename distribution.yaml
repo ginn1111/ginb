@@ -1,15 +1,13 @@
 name: ginb
-version: 1.0.1
-description: "Solo builder: implements, self-reviews, verifies, and ships deliveries"
+version: 1.0.2
+description: 'Solo builder: implements, self-reviews, verifies, and ships deliveries'
 hermes_requires: '>=0.18.0'
 author: Gin
 license: MIT
 env_requires:
-- name: GIN_API_KEY
-  description: API key for gin model access
-- name: GIN_BASE_URL
-  description: Base URL for gin model provider
+  - name: GIN_API_KEY
+    description: API key for gin model access
+  - name: GIN_BASE_URL
+    description: Base URL for gin model provider
 source: https://github.com/ginn1111/ginb
-skills_count: 37
-cron_jobs: 0
-cron_active: 0
+installed_at: '2026-08-15T09:15:30+00:00'

@@ -1,20 +1,10 @@
 model:
-  default: aux
-  provider: gin-interface
-  context_length: 1000000
-browser:
-  cloud_provider: local
-  use_gateway: false
+  default: coder
+  provider: custom
+  base_url: https://agents.gin1111.dev/v1
+  api_key: ${GIN_API_KEY}
 display:
   skin: mono
-memory:
-  memory_enabled: true
-  user_profile_enabled: true
-  memory_char_limit: 2200
-  user_char_limit: 1375
-  provider: byterover
-  byterover:
-    auto_extract: false
 moa:
   presets:
     default:
@@ -42,22 +32,28 @@ moa:
   max_tokens: 4096
   fanout: per_iteration
   enabled: true
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  provider: byterover
+  byterover:
+    auto_extract: false
 skills:
   external_dirs:
     - ${HOME}/.agents/skills
     - /home/aioz/personal/gin-harness/skills
-    - /Users/gin/dev/gin-harness/skills
   write_approval: true
 _config_version: 33
-profile:
-  timezone: Asia/Bangkok
+custom_providers:
+  - api_key: ${GIN_API_KEY}
+    base_url: ${GIN_BASE_URL}
+    default: coder
+    name: agents.gin1111.dev
 platform_toolsets:
   cli:
-    - browser
-    - clarify
     - code_execution
-    - context_engine
-    - cronjob
     - delegation
     - file
     - kanban
@@ -67,22 +63,6 @@ platform_toolsets:
     - skills
     - terminal
     - todo
-    - vision
-    - web
-  telegram:
-    - browser
-    - clarify
-    - code_execution
-    - cronjob
-    - delegation
-    - file
-    - image_gen
-    - memory
-    - session_search
-    - skills
-    - terminal
-    - todo
-    - tts
     - vision
     - web
 mcp_servers:
@@ -97,51 +77,6 @@ mcp_servers:
 known_plugin_toolsets:
   cli:
     - spotify
-  telegram:
-    - spotify
 plugins:
   enabled:
-    - english-tutor
-    - gin-inference
     - ginflow-gate
-    - ginflow-routing
-    - herdr-agent-state
-  disabled: []
-
-# ── Security ──────────────────────────────────────────────────────────
-# Secret redaction is ON by default — strings that look like API keys,
-# tokens, and passwords are masked in tool output, logs, and chat
-# responses before the model or user ever sees them. Set redact_secrets
-# to false to disable (e.g. when developing the redactor itself).
-# tirith pre-exec scanning is enabled by default when the tirith binary
-# is available. Configure via security.tirith_* keys or env vars
-# (TIRITH_ENABLED, TIRITH_BIN, TIRITH_TIMEOUT, TIRITH_FAIL_OPEN).
-#
-# security:
-#   redact_secrets: true
-#   tirith_enabled: true
-#   tirith_path: "tirith"
-#   tirith_timeout: 5
-#   tirith_fail_open: true
-
-# ── Fallback Model ────────────────────────────────────────────────────
-# Automatic provider failover when primary is unavailable.
-# Uncomment and configure to enable. Triggers on rate limits (429),
-# overload (529), service errors (503), or connection failures.
-#
-# Supported providers:
-#   openrouter   (OPENROUTER_API_KEY)  — routes to any model
-#   openai-codex (OAuth — hermes auth) — OpenAI Codex
-#   nous         (OAuth — hermes auth) — Nous Portal
-#   zai          (ZAI_API_KEY)         — Z.AI / GLM
-#   kimi-coding  (KIMI_API_KEY)        — Kimi / Moonshot
-#   kimi-coding-cn (KIMI_CN_API_KEY)   — Kimi / Moonshot (China)
-#   minimax      (MINIMAX_API_KEY)     — MiniMax
-#   minimax-cn   (MINIMAX_CN_API_KEY)  — MiniMax (China)
-#   bedrock      (AWS IAM / boto3)     — AWS Bedrock (Converse API)
-#
-# For custom OpenAI-compatible endpoints, add base_url and key_env.
-#
-# fallback_model:
-#   provider: openrouter
-#   model: anthropic/claude-sonnet-4
