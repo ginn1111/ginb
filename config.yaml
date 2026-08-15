@@ -5,6 +5,14 @@ model:
   api_key: ${GIN_API_KEY}
 display:
   skin: mono
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  provider: byterover
+  byterover:
+    auto_extract: false
 moa:
   presets:
     default:
@@ -32,19 +40,33 @@ moa:
   max_tokens: 4096
   fanout: per_iteration
   enabled: true
-memory:
-  memory_enabled: true
-  user_profile_enabled: true
-  memory_char_limit: 2200
-  user_char_limit: 1375
-  provider: byterover
-  byterover:
-    auto_extract: false
 skills:
   external_dirs:
     - ${HOME}/.agents/skills
     - /home/aioz/personal/gin-harness/skills
   write_approval: true
+  disabled:
+    - aioz-map-layer
+    - aioz-wallet-mobile-ui-v2-widget-porting
+    - browser-extension-react-fast-refresh
+    - canvas-map-overlay
+    - data-driven-file-generation
+    - delivery-verification-in-monorepos
+    - design-md-theme-implementation
+    - form-state-sync-and-restoration
+    - html-diagram
+    - keplr-wallet-hooks
+    - local-storage-session-management
+    - map-gl-overlay-integration
+    - map-layer-migration
+    - map-layer-query-filters
+    - map-layer-temporal-filters
+    - map-overlay-unification
+    - monorepo-targeted-test-verification
+    - network-graph-visualization
+    - token-amount-formatting
+    - token-and-network-picker-ordering
+    - ui-v2-component-integration
 _config_version: 33
 custom_providers:
   - api_key: ${GIN_API_KEY}
@@ -65,7 +87,23 @@ platform_toolsets:
     - todo
     - vision
     - web
+known_plugin_toolsets:
+  cli:
+    - spotify
+plugins:
+  enabled: []
+  disabled:
+    - ginflow-gate
 mcp_servers:
+  gemini-notebook-lm:
+    command: uvx
+    args:
+      - --from
+      - notebooklm-mcp-cli
+      - notebooklm-mcp
+    timeout: 120
+    connect_timeout: 60
+    enabled: true
   codegraph:
     command: codegraph
     args:
@@ -74,9 +112,10 @@ mcp_servers:
     timeout: 120
     connect_timeout: 60
     enabled: true
-known_plugin_toolsets:
-  cli:
-    - spotify
-plugins:
-  enabled:
-    - ginflow-gate
+  drawio:
+    command: npx
+    args:
+      - "@drawio/mcp"
+    timeout: 120
+    connect_timeout: 60
+    enabled: true
