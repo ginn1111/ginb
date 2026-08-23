@@ -1,5 +1,5 @@
 name: ginb
-version: 1.0.3
+version: 1.0.4
 description: 'Solo builder: implements, self-reviews, verifies, and ships deliveries'
 hermes_requires: '>=0.18.0'
 author: Gin
@@ -10,4 +10,3 @@ env_requires:
   - name: GIN_BASE_URL
     description: Base URL for gin model provider
 source: https://github.com/ginn1111/ginb
-installed_at: '2026-08-15T09:15:30+00:00'
