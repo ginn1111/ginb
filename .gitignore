@@ -50,3 +50,32 @@ cron/output/
 
 # Machine-local curator metadata
 skills/.curator_state
+
+# Profile runtime artifacts
+.backup.lock
+.codex_gpt55_autoraise_notice
+.mcp-discovery.lock
+bin/*
+!bin/tirith
+byterover/
+channel_directory.json
+context_length_cache.yaml
+cron/
+gateway-starts.log
+gateway.lock
+gateway.pid
+gateway_state.json
+herdr-agent-state/
+mnemosyne/
+models_dev_cache.etag
+pastes/
+pending/
+plugins/
+processes.json
+projects.db
+scripts/
+spawn-trees/
+state/
+state-snapshots/
+terminal-sessions/
+tui-theme-boot.json
