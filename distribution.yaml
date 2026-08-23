@@ -1,5 +1,5 @@
 name: ginb
-version: 1.0.2
+version: 1.0.3
 description: 'Solo builder: implements, self-reviews, verifies, and ships deliveries'
 hermes_requires: '>=0.18.0'
 author: Gin

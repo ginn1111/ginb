@@ -44,8 +44,8 @@ Stop. Return missing decisions to the coordinating profile instead of guessing.
 ## Profile distribution
 
 - Distribution: `ginb`
-- Version: `1.0.2`
-- Tag: `v1.0.2`
+- Version: `1.0.3`
+- Tag: `v1.0.3`
 - Source: <https://github.com/ginn1111/ginb>
 - Model: `coder` via custom provider
 
