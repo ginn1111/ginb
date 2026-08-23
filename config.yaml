@@ -13,7 +13,7 @@ memory:
   user_char_limit: 1375
   provider: byterover
   byterover:
-    auto_extract: 'true'
+    auto_extract: "true"
 moa:
   presets:
     default:
@@ -44,8 +44,6 @@ moa:
 skills:
   external_dirs:
     - ${HOME}/.agents/skills
-    - ${HOME}/dev/gin-harness/skills
-    - /Users/gin/dev/gin-harness/skills
   write_approval: true
   disabled:
     - aioz-map-layer
@@ -138,7 +136,7 @@ mcp_servers:
   drawio:
     command: npx
     args:
-      - '@drawio/mcp'
+      - "@drawio/mcp"
     timeout: 120
     connect_timeout: 60
     enabled: true
@@ -150,7 +148,8 @@ mcp_servers:
     connect_timeout: 60
     enabled: true
   open-design:
-    command: /Users/gin/Library/Application Support/Open Design/launcher/channels/stable/namespaces/release-stable/versions/0.20.2/payload/Open
+    command:
+      /Users/gin/Library/Application Support/Open Design/launcher/channels/stable/namespaces/release-stable/versions/0.20.2/payload/Open
       Design.app/Contents/Frameworks/Open Design Helper.app/Contents/MacOS/Open Design
       Helper
     args:
@@ -162,7 +161,7 @@ mcp_servers:
       OD_SIDECAR_IPC_PATH: /tmp/open-design/ipc/release-stable/daemon.sock
       OD_MCP_BOOTSTRAP_COMMAND: /usr/bin/open
       OD_MCP_BOOTSTRAP_ARGS: '["-g","-j","/Applications/Open Design.app","--args","--headless"]'
-      ELECTRON_RUN_AS_NODE: '1'
+      ELECTRON_RUN_AS_NODE: "1"
     connect_timeout: 60.0
     enabled: true
 known_builtin_toolsets:
